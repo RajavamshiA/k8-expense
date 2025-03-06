@@ -28,3 +28,18 @@ spec:
       containers:
       - name: mysql
         image: joindevops/mysql:1.0.0        
+---
+#Cluster IP
+kind: Service
+apiVersion: v1
+metadata: 
+  name: mysql
+spec: 
+  selector: #Labels are used as seletors
+     app: mysql
+     tier: mysql
+     purpose: expense
+  ports:
+  - protocol: TCP
+    port: 3306 #service port
+    targetPort: 3306
