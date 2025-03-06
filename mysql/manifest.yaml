@@ -34,6 +34,7 @@ kind: Service
 apiVersion: v1
 metadata: 
   name: mysql
+  namespace: expense
 spec: 
   selector: #Labels are used as seletors
      app: mysql
