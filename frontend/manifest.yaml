@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: expense
+  # These labels for deployment resource. 
+  labels:
+    app: frontend
+    tier: web
+    purpose: expense
+spec: 
+  # Modify the replicas number according to our use case.
+  replicas: 1
+  selector:
+  # Replicaset use these labels to find the pods for creating desired number of replicas.
+    matchLabels:
+      app: frontend
+      tier: web
+      purpose: expense
+  # Pod Template
+  template:
+    metadata:
+      labels: 
+        app: frontend
+        tier: web
+        purpose: expense
+    spec: 
+      containers:
+      - name: frontend
+        image: joindevops/frontend:1.0.0        
+---
+#Node Port as we are exposing it to the users 
+kind: Service
+apiVersion: v1
+metadata: 
+  name: frontend
+  namespace: expense
+spec: 
+  type: LoadBalancer
+  selector: #Labels are used as seletors
+     app: frontend
+     tier: web
+     purpose: expense
+  ports:
+  - protocol: TCP
+    port: 80 #service port
+    targetPort: 80
