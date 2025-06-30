@@ -38,7 +38,7 @@ metadata:
 spec:     
   selector: #Labels are used as seletors
      app: backend
-     tier: backend
+     tier: backend  
      purpose: expense
   ports:
   - protocol: TCP
