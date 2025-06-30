@@ -44,6 +44,6 @@ spec:
      tier: web
      purpose: expense
   ports:
-  - protocol: TCP
+  - protocol: TCP   
     port: 80 #service port
     targetPort: 8080
