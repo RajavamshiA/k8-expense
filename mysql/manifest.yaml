@@ -30,7 +30,7 @@ spec:
         image: joindevops/mysql:1.0.0        
 ---
 #Cluster IP
-kind: Service
+kind: Service       
 apiVersion: v1
 metadata: 
   name: mysql
