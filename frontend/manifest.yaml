@@ -39,7 +39,7 @@ metadata:
   namespace: expense
 spec:         
   type: LoadBalancer          
-  selector: #Labels are used as seletors
+  selector: #Labels are used as seletors    
      app: frontend
      tier: web
      purpose: expense
